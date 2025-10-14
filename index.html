@@ -22,6 +22,7 @@
       align-items: center;
       color: white;
       text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+      text-align: center;
     }
 
     header h1 {
@@ -34,6 +35,7 @@
       justify-content: center;
       background-color: #0077b6;
       padding: 12px;
+      flex-wrap: wrap;
     }
 
     nav a {
@@ -100,16 +102,27 @@
     .booking {
       background-color: #0077b6;
       color: white;
-      padding: 40px 20px;
       text-align: center;
       border-radius: 12px;
-      margin: 40px 0;
+      margin: 40px auto;
+      padding: 50px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .booking form {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 15px;
     }
 
     .booking input,
     .booking button {
       padding: 10px;
-      margin: 8px;
       border-radius: 5px;
       border: none;
       font-size: 1rem;
@@ -147,6 +160,16 @@
 
     footer a:hover {
       text-decoration: underline;
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      .booking input {
+        width: 100%;
+      }
     }
   </style>
 </head>
@@ -187,7 +210,8 @@
       </div>
     </div>
   </div>
-    <!-- Dining & Culture -->
+
+  <!-- Dining & Culture -->
   <div class="container" id="dining">
     <h2 class="section-title">Dining & Culture</h2>
     <div class="attractions">
@@ -209,15 +233,16 @@
     </div>
   </div>
 
-
   <!-- Booking -->
   <div class="container booking" id="booking">
     <h2>Plan Your Trip</h2>
     <p>Book your flights, lodging, and tours all in one place.</p>
-    <input type="text" placeholder="Destination: Taniti" disabled />
-    <input type="date" placeholder="Check-in" />
-    <input type="date" placeholder="Check-out" />
-    <button>Search Now</button>
+    <form>
+      <input type="text" placeholder="Destination: Taniti" disabled />
+      <input type="date" placeholder="Check-in" />
+      <input type="date" placeholder="Check-out" />
+      <button type="button">Search Now</button>
+    </form>
   </div>
 
   <!-- Contact Section -->
