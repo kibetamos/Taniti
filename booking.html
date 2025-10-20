@@ -12,7 +12,7 @@
     <a href="index.html">Home</a>
     <a href="attractions.html">Attractions</a>
     <a href="dining.html">Dining & Culture</a>
-    <a href="booking.html">Book Your Trip</a>
+    <a href="booking.html" class="active">Book Your Trip</a>
     <a href="contact.html">Contact</a>
   </nav>
 
@@ -22,18 +22,45 @@
 
   <div class="container booking">
     <p>Book your flights, lodging, and tours all in one place.</p>
-    <form>
+    <form id="bookingForm">
       <input type="text" placeholder="Destination: Taniti" disabled />
-      <input type="date" placeholder="Check-in" />
-      <input type="date" placeholder="Check-out" />
-      <button type="button">Search Now</button>
+      <input type="date" id="checkIn" required />
+      <input type="date" id="checkOut" required />
+      <button type="submit">Search Now</button>
     </form>
+
+    <div id="confirmationMessage" class="confirmation">
+      <h3>✅ Trip Planned Successfully!</h3>
+      <p>Your island getaway to Taniti has been booked! 🌴<br>
+      Pack your bags and get ready for sunshine, adventure, and relaxation.</p>
+    </div>
   </div>
 
   <footer>
     <p>&copy; 2025 Visit Taniti. All rights reserved.</p>
     <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
   </footer>
+
+  <script>
+    const form = document.getElementById("bookingForm");
+    const confirmation = document.getElementById("confirmationMessage");
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const checkIn = document.getElementById("checkIn").value;
+      const checkOut = document.getElementById("checkOut").value;
+
+      if (!checkIn || !checkOut) {
+        alert("Please select both check-in and check-out dates!");
+        return;
+      }
+
+      confirmation.style.display = "block";
+      confirmation.scrollIntoView({ behavior: "smooth" });
+      form.reset();
+    });
+  </script>
 
 </body>
 </html>
